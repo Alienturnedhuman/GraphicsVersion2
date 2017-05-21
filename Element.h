@@ -22,7 +22,18 @@ private:
     unsigned short uniqueID;
 
     // relative positions
-    double x,y,r;
+    double x,y;
+    short r;
+
+    // for articulation
+    bool limitedRotation;
+    short minAngle,maxAngle;
+
+    // for animation
+    bool animating = false;
+    short anim_r_start, anim_r_end;
+    unsigned short anim_f_total,anim_f_remaining;
+    double anim_x_start,anim_x_end,anim_y_start,anim_y_end;
 public:
     inline unsigned short uid()
     {

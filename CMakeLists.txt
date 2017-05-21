@@ -3,5 +3,5 @@ project(untitled)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES library.cpp library.h Element.cpp Element.h)
+set(SOURCE_FILES library.cpp library.h Element.cpp Element.h PhysicalModel.cpp PhysicalModel.h)
 add_library(untitled ${SOURCE_FILES})
