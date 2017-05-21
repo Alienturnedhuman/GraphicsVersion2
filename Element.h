@@ -44,7 +44,12 @@ public:
     {
         if(newChild->setParent(this))
         {
-
+            childNodes.insert(pair<unsigned short,Element*>(newChild->uid(),newChild));
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
     inline bool removeChild(Element* formerChild)
