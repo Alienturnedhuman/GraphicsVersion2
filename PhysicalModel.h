@@ -169,17 +169,68 @@ private:
     Element* parent;
 public:
     inline Point getGlobalPosition();
+    inline Element* getParent()
+    {
+        return parent;
+    }
+    virtual inline void render();
 
 };
 
+class RenderCircle : public RenderModel
+{
+private:
+    unsigned short radius;
+public:
+    inline void render()
+    {
+
+    }
+
+};
+class RenderAlignedRectangle : public RenderModel
+{
+private:
+    double top,bottom,left,right;
+public:
+    inline void render()
+    {
+        Point parentPos = getParent()->getGlobalPosition();
+
+
+        glPushMatrix();
+            // glTranslatef(30,0,0);
+            glRotatef(-parentPos.a, 0.0, 0.0, 1.0);
+            glColor3f(1.0,0.0,0.0);
+            glBegin(GL_POLYGON);
+            glVertex2f(left,bottom);
+            glVertex2f(left,top);
+            glVertex2f(right,top);
+            glVertex2f(right,bottom);
+            glEnd();
+        glPopMatrix();
+    }
+
+};
+class RenderRectangle : public RenderModel
+{
+private:
+    double top,bottom,left,right;
+public:
+    inline void render()
+    {
+
+    }
+
+};
 
 
 
 class PhysicalModel {
 private:
     CollisionModel* collisionModel = nullptr;
-    RenderModel* RenderModel = nullptr;
+    RenderModel* renderModel = nullptr;
 public:
-
+    void inline render();
 };
 #endif //UNTITLED_PHYSICALMODEL_H

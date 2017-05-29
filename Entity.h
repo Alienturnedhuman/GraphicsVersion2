@@ -26,6 +26,8 @@ public:
     {
         return pos;
     }
+
+    inline void render();
 };
 
 

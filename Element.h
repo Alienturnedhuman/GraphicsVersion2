@@ -90,6 +90,8 @@ public:
     // positional stuff
     inline Point getGlobalPosition();
 
+    inline void render();
+
 };
 
 
