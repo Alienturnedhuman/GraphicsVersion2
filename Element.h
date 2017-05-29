@@ -8,6 +8,8 @@
 #include <cstdlib>
 #include <string>
 #include <map>
+#include "General.h"
+#include "Entity.h"
 
 using namespace std;
 
@@ -20,10 +22,12 @@ private:
     map<unsigned short,Element*> childNodes;
     map<unsigned short,PhysicalModel*> parts;
     unsigned short uniqueID;
+    Entity* entity = nullptr;
 
     // relative positions
     double x,y;
-    short r;
+    short a;
+
 
     // for articulation
     bool limitedRotation;
@@ -82,6 +86,9 @@ public:
         parentElement->removeChild(this);
     }
 
+
+    // positional stuff
+    inline Point getGlobalPosition();
 
 };
 
