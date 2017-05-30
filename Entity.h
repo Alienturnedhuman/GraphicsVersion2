@@ -29,6 +29,7 @@ public:
     enum CollisionDirection {ALL,LEFT,RIGHT,BOTTOM,TOP};
 private:
     Point pos;
+    Point momentum;
     EntityType type;
     map<unsigned short,Element*> childNodes;
     map<CollisionDirection,map<EntityType,vector<CollisionAction*>>> collisionRules;
@@ -38,6 +39,10 @@ public:
     inline Point getGlobalPosition()
     {
         return pos;
+    }
+    inline Point getMomentum()
+    {
+        return momentum;
     }
 
 

@@ -20,25 +20,13 @@ private:
     vector<CollisionModel*>::iterator stationaryEnd = stationary.end();
     vector<CollisionModel*>::iterator movingEnd = moving.end();
 public:
-    inline void handleCollisions()
-    {
-        for(vector<CollisionModel*>::iterator movingIt = moving.begin();movingIt!=movingEnd;++movingIt)
-        {
-            // compare against everything stationary
-            for(vector<CollisionModel*>::iterator stationaryIt = stationary.begin();stationaryIt!=stationaryEnd;++stationaryIt)
-            {
+    /**
+     * this returns a vector that the parent Entity will need to be adjusted by
+     * @return
+     */
+    inline void testCollision(Entity* parent,CollisionModel* moving,CollisionModel* stationary);
 
-            }
-
-            // compare against everything moving that has been moved
-            for(vector<CollisionModel*>::iterator movingComp = moving.begin();movingComp!=movingIt;++movingComp)
-            {
-
-
-            }
-
-        }
-    }
+    inline void handleCollisions(double deltaTime);
 };
 
 class Game

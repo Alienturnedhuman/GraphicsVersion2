@@ -29,6 +29,11 @@ public:
     virtual inline double getLeft();
     virtual inline double getRight();
 
+    inline Entity* belongsTo()
+    {
+        return parent->belongsTo();
+    }
+
     static inline bool circleAlignedRectOverlap(CollisionModel* circle, Point circleOrigin , CollisionModel* alignedRect, Point rectOrigin);
 };
 

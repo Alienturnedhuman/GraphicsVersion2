@@ -90,6 +90,11 @@ public:
     // positional stuff
     inline Point getGlobalPosition();
 
+    inline Entity* belongsTo()
+    {
+        return entity;
+    }
+
     inline void render();
 
 };
